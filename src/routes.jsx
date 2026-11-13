@@ -1,6 +1,10 @@
 import App from "./App";
 import { ErrorPage } from "./ErrorPage";
 import { Profile } from "./Profile";
+import { SignUp } from "./SignUp";
+import { Popeye } from "./Popeye";
+import { Spinach } from "./Spinach";
+import { Image } from "./Image";
 
 export const routes = [
   {
@@ -8,10 +12,18 @@ export const routes = [
     element: <App />,
     errorElement: <ErrorPage />,
   },
+  { path: "image", element: <Image /> },
   {
-    path: "profile/:name",
+    path: `profile`,
     element: <Profile />,
   },
+  {
+    path: "profile/sign-up",
+    element: <SignUp />,
+    // children: [{ path: "spinach", element: <Popeye /> }],
+  },
+  { path: "profile/popeye", element: <Popeye /> },
+  { path: "profile/spinach", element: <Spinach /> },
 ];
 
 // [

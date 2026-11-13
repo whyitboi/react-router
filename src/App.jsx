@@ -9,6 +9,9 @@ const App = () => {
           <li>
             <Link to="profile">Profile pages</Link>
           </li>
+          <li>
+            <Link to="image">Images</Link>
+          </li>
         </ul>
       </nav>
     </>

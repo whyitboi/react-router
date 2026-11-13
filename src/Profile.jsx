@@ -1,6 +1,7 @@
-import { useParams } from "react-router";
+import { Link, Outlet, useParams } from "react-router";
 import { Popeye } from "./Popeye";
 import { Spinach } from "./Spinach";
+import { SignUp } from "./SignUp";
 
 export const Profile = () => {
   const name = useParams();
@@ -14,6 +15,8 @@ export const Profile = () => {
         <Popeye />
       ) : name === "spinach" ? (
         <Spinach />
+      ) : name === "sign-up" ? (
+        <SignUp />
       ) : (
         <DefaultProfile />
       )}
@@ -24,5 +27,21 @@ export const Profile = () => {
 };
 
 export const DefaultProfile = () => {
-  return <p> Oh! nothing to see here!</p>;
+  return (
+    <>
+      <p> Oh! nothing to see here!</p>
+      <Outlet />
+      <ul>
+        <li>
+          <Link to="popeye">Popeye</Link>
+        </li>
+        <li>
+          <Link to="spinach">Spinach</Link>
+        </li>
+        <li>
+          <Link to="../image">Image</Link>
+        </li>
+      </ul>
+    </>
+  );
 };
