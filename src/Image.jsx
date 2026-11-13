@@ -33,12 +33,12 @@ const useImageUrl = () => {
   const [loading, setLoading] = useState(true);
 
   useEffect(() => {
-    fetch("https://loremflickr.com/320/240")
+    fetch("https://dog.ceo/api/breeds/image/random")
       .then((response) => {
         if (response.status >= 400) throw new Error("sever error");
         return response.url;
       })
-      .then((data) => setImageURL(data))
+      .then((data) => setImageURL(data.message))
       .catch((error) => setError(error.message))
       .finally(() => setLoading(false));
   }, []);
