@@ -33,12 +33,12 @@ const useImageUrl = () => {
   const [loading, setLoading] = useState(true);
 
   useEffect(() => {
-    fetch("https://dog.ceo/api/breeds/image/random")
+    fetch("https://api.thecatapi.com/v1/images/search") //'dog.ceo/api/breeds/image/random'
       .then((response) => {
         if (response.status >= 400) throw new Error("sever error");
-        return response.url;
+        return response.json();
       })
-      .then((data) => setImageURL(data.message))
+      .then((data) => setImageURL(data[0].url))
       .catch((error) => setError(error.message))
       .finally(() => setLoading(false));
   }, []);
